@@ -1,0 +1,22 @@
+prefix foaf: <http://xmlns.com/foaf/0.1/>
+prefix mo: <http://purl.org/ontology/mo/>
+prefix event: <http://purl.org/NET/c4dm/event.owl#>
+prefix jazz: <http://linkedjazz.org/ontology/>
+prefix vocab: <http://purl.org/vocab/relationship/>
+
+select distinct ?s where 
+{   
+OPTIONAL
+{  ?s jazz:bandmember ?member .}
+OPTIONAL
+   { ?s jazz:bandLeaderOf ?leader .}
+OPTIONAL
+    { ?s jazz:touredWith ?tourer .}
+OPTIONAL
+     { ?s jazz:inBandTogether ?together .}
+OPTIONAL
+     { ?s jazz:playedTogether ?playedTogether .}
+OPTIONAL
+     { ?s mo:collaborated_with ?collaborator . }
+  
+}
