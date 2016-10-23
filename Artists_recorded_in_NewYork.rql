@@ -1,0 +1,32 @@
+prefix jc: <http://jazzcats.oerc.ox.ac.uk/>
+prefix mo: <http://purl.org/ontology/mo/>
+prefix viaf: <http://viaf.org/viaf>
+prefix skos: <http://www.w3.org/2004/02/skos/core#>
+prefix foaf: <http://xmlns.com/foaf/0.1/>
+prefix jazz: <http://linkedjazz.org/ontology/>
+prefix event: <http://purl.org/NET/c4dm/event.owl#>
+prefix vocab: <http://purl.org/vocab/relationship/>
+prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
+prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT DISTINCT ?artist1_name
+WHERE {
+{
+	?artist1 a foaf:Person ;
+    		 mo:performed ?performance ;
+			 rdfs:label ?artist1_name .
+
+    
+?performance a mo:Performance ;
+			 mo:produced_sound ?sound .
+
+?sound a mo:Sound ;
+	   mo:recorded_in ?recording .
+
+?recording a mo:Recording;
+		   event:place <http://www.wikidata.org/wiki/Q60> ;
+           event:time ?date .
+
+}
+
+}

@@ -20,3 +20,37 @@ OPTIONAL
      { ?s mo:collaborated_with ?collaborator . }
   
 }
+
+
+-----
+
+prefix foaf: <http://xmlns.com/foaf/0.1/>
+prefix mo: <http://purl.org/ontology/mo/>
+prefix event: <http://purl.org/NET/c4dm/event.owl#>
+prefix jazz: <http://linkedjazz.org/ontology/>
+prefix vocab: <http://purl.org/vocab/relationship/>
+
+select distinct ?fus ?ro where 
+{  
+{ 
+OPTIONAL
+{  ?fus jazz:bandmember ?member .}
+OPTIONAL
+   { ?fus jazz:bandLeaderOf ?leader .}
+OPTIONAL
+    { ?fus jazz:touredWith ?tourer .}
+OPTIONAL
+     { ?fus jazz:inBandTogether ?together .}
+OPTIONAL
+     { ?fus jazz:playedTogether ?playedTogether .}
+OPTIONAL
+     { ?fus mo:collaborated_with ?collaborator . }
+  
+}
+UNION
+{
+?ro a foaf:Person
+}
+}
+
+------
