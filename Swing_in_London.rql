@@ -1,0 +1,21 @@
+prefix mo: <http://purl.org/ontology/mo/>
+prefix jcv: <http://jazzcats.oerc.ox.ac.uk/data/vocab/>
+prefix event: <http://purl.org/NET/c4dm/event.owl#>
+
+SELECT DISTINCT * where {
+
+?solo_info a jcv:solo_info ;
+           jcv:solo_info_style "SWING" ;
+           mo:performer ?person .
+
+?person a foaf:Person ;
+          mo:performed ?performance .
+
+?performance a mo:Performance ;
+             mo:produced_sound ?sound .
+
+?sound a mo:Sound ;
+       mo:recorded_in ?recording .
+
+?recording a mo:Recording ;
+           event:place <http://www.wikidata.org/wiki/Q84>. }
