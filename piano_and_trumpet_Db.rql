@@ -1,16 +1,16 @@
 prefix mo: <http://purl.org/ontology/mo/>
 
-select ?performance ?name
+select distinct ?performance ?name
 where {
 
 ?performance a mo:Performance ;
-             mo:instrument <http://jazzcats.oerc.ox.ac.uk/instrument/piano> ;
+             mo:instrument <http://jazzcats.oerc.ox.ac.uk/data/instrument/piano> ;
              mo:produced_sound ?sound ;
              mo:performer ?person .
 
 ?person a foaf:Person;
         rdfs:label ?name ;
-        mo:primary_instrument <http://jazzcats.oerc.ox.ac.uk/instrument/trumpet> .
+        mo:primary_instrument <http://jazzcats.oerc.ox.ac.uk/data/instrument/trumpet> .
 
 ?sound a mo:Sound ;
        mo:key  "Db" ;
